@@ -1,10 +1,11 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "service": "PLERA",
   "role": "STOS public static edge",
-  "phase": "phase-1-content-ready",
+  "phase": "phase-1-commissioned",
   "authority": "non-authoritative-public-edge",
-  "publication_state": "repository-ready; public Pages publication not yet certified",
+  "publication_state": "published-and-deployment-verified",
+  "public_url": "https://khaemenesacademy.github.io/PLERA.github.io/",
   "milestones": [
     {
       "id": "A",
@@ -15,6 +16,11 @@
       "id": "B",
       "name": "Admin Authority Consolidated",
       "status": "sealed"
+    },
+    {
+      "id": "PLERA-P1",
+      "name": "PLERA Phase 1 Public Edge",
+      "status": "commissioned"
     }
   ],
   "public_surfaces": [
@@ -23,8 +29,16 @@
     "404.html",
     "status.json",
     "README.md",
-    "PUBLIC_BOUNDARY.md"
+    "PUBLIC_BOUNDARY.md",
+    "PHASE1_CERTIFICATION.json"
   ],
+  "publication_evidence": {
+    "provider": "GitHub Pages",
+    "deployment_workflow": "pages build and deployment",
+    "verified_head_sha": "85a359cabe36ab9cd473a0c44d21ebfd6be519ad",
+    "deployment_result": "success",
+    "artifact_digest": "sha256:d8f18036e3bfe9290a9abf6f2b68a9ce99ad0ea980b7837c5ced281b9c460596"
+  },
   "public_boundary": {
     "contains_secrets": false,
     "contains_private_repository_payloads": false,
