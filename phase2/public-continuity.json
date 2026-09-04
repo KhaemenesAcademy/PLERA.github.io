@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-04T21:48:00Z",
+  "state": "unknown",
+  "continuity": "unknown",
+  "freshness": "stale",
+  "public_message": "PLERA continuity bridge is installed; live STOS publication is not yet enabled.",
+  "source_class": "sanitized-static-projection",
+  "authoritative": false
+}
