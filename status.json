@@ -1,9 +1,10 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "service": "PLERA",
   "role": "STOS public static edge",
-  "phase": "phase-1-commissioning",
+  "phase": "phase-1-content-ready",
   "authority": "non-authoritative-public-edge",
+  "publication_state": "repository-ready; public Pages publication not yet certified",
   "milestones": [
     {
       "id": "A",
@@ -16,11 +17,20 @@
       "status": "sealed"
     }
   ],
+  "public_surfaces": [
+    "index.html",
+    "continuity.html",
+    "404.html",
+    "status.json",
+    "README.md",
+    "PUBLIC_BOUNDARY.md"
+  ],
   "public_boundary": {
     "contains_secrets": false,
     "contains_private_repository_payloads": false,
     "contains_terminal_authority": false,
-    "contains_live_internal_health": false
+    "contains_live_internal_health": false,
+    "contains_private_recovery_artifacts": false
   },
   "note": "Sanitized static commissioning metadata only. This file is not an operational STOS health or control API."
 }
