@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>PLERA · STOS Public Edge</title>
+  <meta name="description" content="PLERA is the public, static edge for STOS continuity, status, documentation, and recovery guidance. Operational authority remains sovereign and private.">
+  <style>
+    :root{
+      --bg:#090b0d;
+      --panel:#111419;
+      --panel-2:#15191f;
+      --line:#3a3f47;
+      --text:#f4efe5;
+      --muted:#b9b4aa;
+      --gold:#d5b978;
+      --ok:#a9d8b2;
+      --max:1111px;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      background:
+        radial-gradient(circle at 18% 0%,rgba(213,185,120,.08),transparent 30rem),
+        linear-gradient(180deg,#090b0d 0%,#0d1014 100%);
+      color:var(--text);
+      font-family:"Brandon Grotesque","Avenir Next","Helvetica Neue",Arial,sans-serif;
+      line-height:1.6;
+    }
+    a{color:inherit}
+    .shell{width:min(calc(100% - 32px),var(--max));margin:auto}
+    header{
+      border-bottom:1px solid rgba(213,185,120,.28);
+      background:rgba(9,11,13,.9);
+      backdrop-filter:blur(14px);
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    .bar{
+      min-height:66px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand{
+      font-family:Cinzel,Georgia,"Times New Roman",serif;
+      letter-spacing:.22em;
+      font-size:.92rem;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .phase{
+      color:var(--ok);
+      border:1px solid rgba(169,216,178,.38);
+      border-radius:999px;
+      padding:7px 11px;
+      font-size:.74rem;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+    }
+    main{padding:88px 0 72px}
+    .hero{
+      min-height:55vh;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:44px 0 66px;
+    }
+    .hero-inner{max-width:888px}
+    .eyebrow{
+      color:var(--gold);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:.78rem;
+      margin-bottom:18px;
+    }
+    h1,h2,h3{
+      font-family:Cinzel,Georgia,"Times New Roman",serif;
+      font-weight:500;
+    }
+    h1{
+      font-size:clamp(2.65rem,7vw,6.4rem);
+      line-height:.98;
+      letter-spacing:.08em;
+      margin:0 0 24px;
+    }
+    .lede{
+      max-width:777px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:clamp(1rem,2vw,1.18rem);
+    }
+    .actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:11px;
+      margin-top:33px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:188px;
+      padding:12px 18px;
+      border:1px solid var(--gold);
+      border-radius:3px;
+      text-decoration:none;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-size:.78rem;
+    }
+    .btn.secondary{border-color:var(--line);color:var(--muted)}
+    section{padding:44px 0}
+    .section-title{text-align:center;margin:0 0 24px;font-size:1.55rem;letter-spacing:.07em}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{
+      background:linear-gradient(180deg,var(--panel),var(--panel-2));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      min-height:188px;
+    }
+    .card h3{margin:0 0 10px;font-size:1rem;letter-spacing:.05em}
+    .card p{margin:0;color:var(--muted);font-size:.94rem}
+    .seal{
+      margin-top:14px;
+      color:var(--ok);
+      font-size:.76rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .boundary{
+      max-width:888px;
+      margin:0 auto;
+      border:1px solid rgba(213,185,120,.28);
+      border-radius:var(--radius);
+      padding:28px;
+      background:rgba(213,185,120,.035);
+    }
+    .boundary p{color:var(--muted)}
+    .boundary ul{padding-left:20px;color:var(--muted)}
+    footer{
+      border-top:1px solid var(--line);
+      color:#8f8b83;
+      font-size:.82rem;
+      padding:28px 0 40px;
+      text-align:center;
+    }
+    @media (max-width:800px){
+      .grid{grid-template-columns:1fr}
+      .bar{min-height:60px}
+      .phase{font-size:.66rem}
+      main{padding-top:44px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell bar">
+      <div class="brand">PLERA</div>
+      <div class="phase">Public Edge · Phase 1</div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero" aria-labelledby="plera-title">
+      <div class="hero-inner">
+        <div class="eyebrow">STOS · Public Continuity Edge</div>
+        <h1 id="plera-title">PLERA</h1>
+        <p class="lede">
+          A quiet, public, static doorway for STOS continuity, public documentation,
+          recovery guidance, and carefully sanitized status information. Operational
+          authority remains sovereign, private, and outside this repository.
+        </p>
+        <div class="actions">
+          <a class="btn" href="#status">View Public Status</a>
+          <a class="btn secondary" href="#boundary">Authority Boundary</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="status" aria-labelledby="status-title">
+      <h2 class="section-title" id="status-title">Public Commissioning Status</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Milestone A</h3>
+          <p>File organization consolidation completed and sealed before PLERA commissioning.</p>
+          <div class="seal">Sealed</div>
+        </article>
+        <article class="card">
+          <h3>Milestone B</h3>
+          <p>Admin authority consolidation completed and sealed. Routine administration uses passcode-backed Gateway sessions; recovery authority remains separate.</p>
+          <div class="seal">Sealed</div>
+        </article>
+        <article class="card">
+          <h3>PLERA Phase 1</h3>
+          <p>The public static edge is being commissioned. No operational control plane is exposed here.</p>
+          <div class="seal">Commissioning</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="boundary" aria-labelledby="boundary-title">
+      <h2 class="section-title" id="boundary-title">Public / Sovereign Boundary</h2>
+      <div class="boundary">
+        <p><strong>PLERA is a public edge, not the STOS authority plane.</strong></p>
+        <p>This repository may publish public-facing pages, sanitized status, continuity guidance, and documentation intended for everyone.</p>
+        <p>It must not contain or expose:</p>
+        <ul>
+          <li>Admin passcodes, Root Secrets, control-plane secrets, or session cookies</li>
+          <li>Private repository payloads or private STOS filesystem material</li>
+          <li>Terminal tickets, local Unix-socket authority, or runtime control credentials</li>
+          <li>Raw private security evidence or unsanitized host diagnostics</li>
+        </ul>
+        <p>STOS remains authoritative behind its sovereign trust and supervision layers. PLERA is the public doorway only.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">PLERA · STOS Public Edge · Static by design</div>
+  </footer>
+</body>
+</html>
