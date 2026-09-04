@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>PLERA · STOS Continuity</title>
+  <style>
+    :root{--bg:#090b0d;--panel:#111419;--line:#3a3f47;--text:#f4efe5;--muted:#b9b4aa;--gold:#d5b978;--max:888px}
+    *{box-sizing:border-box} body{margin:0;min-height:100vh;background:linear-gradient(180deg,#090b0d,#0d1014);color:var(--text);font-family:"Brandon Grotesque","Avenir Next","Helvetica Neue",Arial,sans-serif;line-height:1.6}
+    .shell{width:min(calc(100% - 32px),var(--max));margin:auto;padding:56px 0} h1,h2{font-family:Cinzel,Georgia,serif;font-weight:500} h1{font-size:clamp(2rem,6vw,4rem);margin:.2em 0}.eyebrow{color:var(--gold);letter-spacing:.16em;text-transform:uppercase;font-size:.76rem}.card{margin-top:28px;border:1px solid var(--line);background:var(--panel);padding:24px;border-radius:10px}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:18px}.item{border:1px solid var(--line);padding:14px;border-radius:7px}.label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}.value{margin-top:5px;font-size:1rem}.ok{color:#a9d8b2}.warn{color:#e0c98f}.unknown{color:#b9b4aa}a{color:inherit}.back{display:inline-block;margin-top:28px;color:var(--gold)}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="eyebrow">PLERA Phase 2 · Public Projection</div>
+    <h1>STOS Continuity</h1>
+    <p class="muted">A sanitized, non-authoritative snapshot. PLERA cannot control STOS and exposes no private runtime details.</p>
+
+    <section class="card" aria-live="polite">
+      <h2 id="headline">Continuity state: unknown</h2>
+      <p id="message" class="muted">Waiting for a valid public snapshot.</p>
+      <div class="grid">
+        <div class="item"><div class="label">State</div><div class="value" id="state">unknown</div></div>
+        <div class="item"><div class="label">Continuity</div><div class="value" id="continuity">unknown</div></div>
+        <div class="item"><div class="label">Freshness</div><div class="value" id="freshness">unknown</div></div>
+        <div class="item"><div class="label">Generated</div><div class="value" id="generated">unknown</div></div>
+      </div>
+    </section>
+
+    <a class="back" href="../">← PLERA public edge</a>
+  </main>
+
+<script>
+(async()=>{
+  const allowedKeys=['authoritative','continuity','freshness','generated_at','public_message','schema_version','source_class','state'];
+  const allowedState=new Set(['available','degraded','maintenance','unknown']);
+  const allowedContinuity=new Set(['nominal','recovering','maintenance','unknown']);
+  const allowedFreshness=new Set(['current','stale','unknown']);
+  const text=(id,v)=>document.getElementById(id).textContent=v;
+  try{
+    const r=await fetch('./public-continuity.json',{cache:'no-store'});
+    if(!r.ok) throw new Error('snapshot unavailable');
+    const d=await r.json();
+    const keys=Object.keys(d).sort();
+    if(JSON.stringify(keys)!==JSON.stringify(allowedKeys)) throw new Error('invalid fields');
+    if(d.schema_version!=='1.0'||d.authoritative!==false||d.source_class!=='sanitized-static-projection') throw new Error('invalid authority boundary');
+    if(!allowedState.has(d.state)||!allowedContinuity.has(d.continuity)||!allowedFreshness.has(d.freshness)) throw new Error('invalid values');
+    const ts=Date.parse(d.generated_at); if(!Number.isFinite(ts)) throw new Error('invalid timestamp');
+    const age=Date.now()-ts;
+    const effectiveFreshness=age>15*60*1000?'stale':d.freshness;
+    text('headline',`Continuity state: ${d.state}`);
+    text('message',d.public_message);
+    text('state',d.state); text('continuity',d.continuity); text('freshness',effectiveFreshness); text('generated',new Date(ts).toLocaleString());
+  }catch{
+    text('headline','Continuity state: unknown');
+    text('message','No valid public continuity snapshot is currently available.');
+  }
+})();
+</script>
+</body>
+</html>
