@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>PLERA · Public Continuity Guidance</title>
+  <meta name="description" content="Public continuity and recovery guidance for the STOS ecosystem. PLERA is static and non-authoritative; operational recovery remains sovereign and private.">
+  <style>
+    :root{--bg:#090b0d;--panel:#111419;--line:#3a3f47;--text:#f4efe5;--muted:#b9b4aa;--gold:#d5b978;--ok:#a9d8b2;--max:888px}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:linear-gradient(180deg,#090b0d,#0d1014);color:var(--text);font-family:"Brandon Grotesque","Avenir Next","Helvetica Neue",Arial,sans-serif;line-height:1.65}
+    a{color:inherit}
+    .shell{width:min(calc(100% - 32px),var(--max));margin:auto}
+    header{border-bottom:1px solid rgba(213,185,120,.28);padding:22px 0}
+    .brand{font-family:Cinzel,Georgia,"Times New Roman",serif;letter-spacing:.2em;text-transform:uppercase;font-size:.9rem;text-decoration:none}
+    main{padding:66px 0 88px}
+    .eyebrow{color:var(--gold);letter-spacing:.17em;text-transform:uppercase;font-size:.76rem}
+    h1,h2{font-family:Cinzel,Georgia,"Times New Roman",serif;font-weight:500}
+    h1{font-size:clamp(2rem,6vw,4.4rem);letter-spacing:.05em;line-height:1.05;margin:14px 0 20px}
+    h2{font-size:1.15rem;letter-spacing:.05em;margin:0 0 12px}
+    .lede{color:var(--muted);font-size:1.05rem;max-width:777px}
+    .notice{margin:33px 0;padding:20px;border:1px solid rgba(169,216,178,.35);background:rgba(169,216,178,.04);border-radius:8px;color:var(--muted)}
+    .notice strong{color:var(--ok)}
+    .stack{display:grid;gap:14px;margin-top:33px}
+    .card{border:1px solid var(--line);background:var(--panel);padding:24px;border-radius:10px}
+    .card p,.card li{color:var(--muted)}
+    .card ul,.card ol{margin-bottom:0;padding-left:22px}
+    .actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:33px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-width:180px;padding:11px 16px;border:1px solid var(--gold);text-decoration:none;text-transform:uppercase;letter-spacing:.09em;font-size:.75rem;border-radius:3px}
+    .btn.secondary{border-color:var(--line);color:var(--muted)}
+    footer{border-top:1px solid var(--line);padding:25px 0 36px;color:#8f8b83;text-align:center;font-size:.8rem}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell"><a class="brand" href="./">PLERA</a></div>
+  </header>
+
+  <main class="shell">
+    <div class="eyebrow">STOS · Public Continuity</div>
+    <h1>Continuity Guidance</h1>
+    <p class="lede">PLERA remains available as a public static reference even when a sovereign STOS runtime is offline. It does not replace the runtime, authenticate operators, recover secrets, or exercise operational authority.</p>
+
+    <div class="notice"><strong>Public boundary:</strong> this page intentionally contains no credentials, terminal tickets, private repository payloads, internal control endpoints, raw host diagnostics, or live operational health data.</div>
+
+    <div class="stack">
+      <section class="card">
+        <h2>When a local STOS runtime is unavailable</h2>
+        <ol>
+          <li>Confirm the intended sovereign host is powered on and reachable by its authorized operator.</li>
+          <li>Use the locally sealed commissioning and recovery records maintained by the operator; PLERA does not contain those private artifacts.</li>
+          <li>Restore service through the approved local supervision chain rather than exposing a private Gateway directly to the public Internet.</li>
+          <li>Verify integrity, supervision, and authority before resuming protected operations.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>Recovery authority remains private</h2>
+        <p>Routine administration and emergency recovery are deliberately separate. PLERA never requests or stores either form of authority. Any recovery credential, challenge, passcode, session, or control-plane secret belongs only to the sovereign environment that issued it.</p>
+      </section>
+
+      <section class="card">
+        <h2>Repository continuity</h2>
+        <p>Public documentation may remain mirrored here for discoverability. Private repository material, repository-write authority, and materialization controls remain outside PLERA. Public copies are references, not the sovereign source of truth.</p>
+      </section>
+
+      <section class="card">
+        <h2>Public status interpretation</h2>
+        <p>The accompanying <code>status.json</code> is sanitized commissioning metadata. It is not a live health feed and must not be used to infer whether a private STOS host, terminal, socket, or repository is currently online.</p>
+      </section>
+    </div>
+
+    <div class="actions">
+      <a class="btn" href="./">Return to PLERA</a>
+      <a class="btn secondary" href="status.json">View Sanitized Status</a>
+    </div>
+  </main>
+
+  <footer><div class="shell">PLERA · Public continuity without public authority</div></footer>
+</body>
+</html>
