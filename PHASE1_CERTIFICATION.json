@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "project": "PLERA",
+  "phase": "phase-1",
+  "certification_scope": "public repository content only",
+  "certification_status": "CONTENT_READY",
+  "publication_status": "NOT_YET_CERTIFIED",
+  "authority": "non-authoritative-public-edge",
+  "branch": "main",
+  "inventory": [
+    {
+      "path": ".nojekyll",
+      "role": "static publishing marker",
+      "git_blob_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "index.html",
+      "role": "public doorway",
+      "git_blob_id": "9b051de533d999ad61a9f49b047f351d60734f6a"
+    },
+    {
+      "path": "continuity.html",
+      "role": "public continuity guidance",
+      "git_blob_id": "1bb9027db2ef4206a4e1fc90081bb231a4133452"
+    },
+    {
+      "path": "404.html",
+      "role": "safe static fallback",
+      "git_blob_id": "c0fddbb6477f45d4b22e51895d2efb1b569efdad"
+    },
+    {
+      "path": "status.json",
+      "role": "sanitized commissioning metadata",
+      "git_blob_id": "a944b76ba7dc4bed495fff10c3c4f4eb3e735346"
+    },
+    {
+      "path": "README.md",
+      "role": "repository role and constraints",
+      "git_blob_id": "bd309ea7fd4e5c7aa798bc8daa304c9a10a17cc2"
+    },
+    {
+      "path": "PUBLIC_BOUNDARY.md",
+      "role": "formal public/sovereign boundary",
+      "git_blob_id": "2bca89390cbf124329c52d7b79ac146abf5b8050"
+    }
+  ],
+  "boundary_checks": {
+    "secret_values_intentionally_present": false,
+    "admin_passcode_values_present": false,
+    "root_secret_values_present": false,
+    "control_plane_secret_values_present": false,
+    "browser_session_material_present": false,
+    "terminal_control_credentials_present": false,
+    "private_repository_payloads_present": false,
+    "private_recovery_archives_present": false,
+    "live_internal_health_feed_present": false,
+    "private_runtime_fallback_present": false
+  },
+  "certification_note": "Phase 1 repository content is ready for publication testing. This certification does not assert that GitHub Pages is enabled, deployed, reachable, or correctly routed. Publication must be verified separately before PLERA Phase 1 is declared commissioned."
+}
