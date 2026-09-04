@@ -36,8 +36,11 @@ See `PUBLIC_BOUNDARY.md` for the formal public/sovereign boundary.
 
 - Milestone A · File Organization Consolidated · SEALED
 - Milestone B · Admin Authority Consolidated · SEALED
-- PLERA Phase 1 repository content · READY FOR PUBLICATION TESTING
-- GitHub Pages publication · NOT YET CERTIFIED
+- PLERA Phase 1 repository content · CERTIFIED
+- GitHub Pages publication · DEPLOYMENT VERIFIED
+- PLERA Phase 1 public edge · COMMISSIONED
+
+Public URL: `https://khaemenesacademy.github.io/PLERA.github.io/`
 
 ## Phase 1 public surfaces
 
@@ -46,7 +49,7 @@ See `PUBLIC_BOUNDARY.md` for the formal public/sovereign boundary.
 - `404.html` — safe static fallback
 - `status.json` — sanitized commissioning metadata
 - `PUBLIC_BOUNDARY.md` — formal public/sovereign boundary
-- `PHASE1_CERTIFICATION.json` — repository-content certification manifest
+- `PHASE1_CERTIFICATION.json` — Phase 1 certification manifest
 - `.nojekyll` — static publishing marker
 
 ## Design constraints
@@ -62,6 +65,6 @@ See `PUBLIC_BOUNDARY.md` for the formal public/sovereign boundary.
 
 `status.json` contains deliberately sanitized public commissioning state only. It is not a live internal health feed and must not be treated as an operational monitoring API.
 
-## Publication rule
+## Publication certification
 
-Repository content readiness and public publication are separate gates. PLERA Phase 1 is not declared commissioned until the published Pages site is independently verified for routing, content, fallback behavior, and public-boundary integrity.
+GitHub Pages successfully built and deployed the Phase 1 public artifact from `main`. The deployed artifact was independently inspected for file inventory and public-boundary integrity before Phase 1 was marked commissioned. This certification does not make GitHub or PLERA the sovereign operational source of truth; PLERA remains a static public edge only.
