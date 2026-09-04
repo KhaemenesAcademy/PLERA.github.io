@@ -1,0 +1,28 @@
+name: PLERA continuity gate
+
+on:
+  push:
+    paths:
+      - 'phase2/public-continuity.json'
+      - 'phase2/public-continuity.schema.json'
+      - 'phase2/validate-public-continuity.mjs'
+      - '.github/workflows/plera-continuity-gate.yml'
+  pull_request:
+    paths:
+      - 'phase2/public-continuity.json'
+      - 'phase2/public-continuity.schema.json'
+      - 'phase2/validate-public-continuity.mjs'
+      - '.github/workflows/plera-continuity-gate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-public-projection:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate strict public continuity snapshot
+        run: node phase2/validate-public-continuity.mjs phase2/public-continuity.json
