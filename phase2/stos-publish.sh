@@ -34,22 +34,24 @@ let s="";process.stdin.on("data",d=>s+=d);process.stdin.on("end",()=>{try{const 
 '; then
     STATE="available"
     CONTINUITY="nominal"
+    FRESHNESS="current"
     MESSAGE="Sovereign STOS continuity service is reachable."
   else
     STATE="unknown"
     CONTINUITY="unknown"
+    FRESHNESS="unknown"
     MESSAGE="Sovereign STOS continuity state is currently unavailable."
   fi
 
-  node --input-type=module - "$SNAPSHOT" "$NOW" "$STATE" "$CONTINUITY" "$MESSAGE" <<'NODE'
+  node --input-type=module - "$SNAPSHOT" "$NOW" "$STATE" "$CONTINUITY" "$FRESHNESS" "$MESSAGE" <<'NODE'
 import fs from 'node:fs';
-const [, , file, generated_at, state, continuity, public_message] = process.argv;
+const [, , file, generated_at, state, continuity, freshness, public_message] = process.argv;
 const snapshot = {
   schema_version: '1.0',
   generated_at,
   state,
   continuity,
-  freshness: 'current',
+  freshness,
   public_message,
   source_class: 'sanitized-static-projection',
   authoritative: false
