@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://khaemenesacademy.github.io/PLERA.github.io/phase2/public-continuity.schema.json",
+  "title": "PLERA Public Continuity Snapshot",
+  "description": "Strict public projection for static PLERA continuity presentation. This schema carries no operational authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "generated_at",
+    "state",
+    "continuity",
+    "freshness",
+    "public_message",
+    "source_class",
+    "authoritative"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "state": {
+      "type": "string",
+      "enum": ["available", "degraded", "maintenance", "unknown"]
+    },
+    "continuity": {
+      "type": "string",
+      "enum": ["nominal", "recovering", "maintenance", "unknown"]
+    },
+    "freshness": {
+      "type": "string",
+      "enum": ["current", "stale", "unknown"]
+    },
+    "public_message": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 333
+    },
+    "source_class": {
+      "const": "sanitized-static-projection"
+    },
+    "authoritative": {
+      "const": false
+    }
+  }
+}
