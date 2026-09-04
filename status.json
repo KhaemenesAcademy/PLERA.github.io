@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "service": "PLERA",
+  "role": "STOS public static edge",
+  "phase": "phase-1-commissioning",
+  "authority": "non-authoritative-public-edge",
+  "milestones": [
+    {
+      "id": "A",
+      "name": "File Organization Consolidated",
+      "status": "sealed"
+    },
+    {
+      "id": "B",
+      "name": "Admin Authority Consolidated",
+      "status": "sealed"
+    }
+  ],
+  "public_boundary": {
+    "contains_secrets": false,
+    "contains_private_repository_payloads": false,
+    "contains_terminal_authority": false,
+    "contains_live_internal_health": false
+  },
+  "note": "Sanitized static commissioning metadata only. This file is not an operational STOS health or control API."
+}
