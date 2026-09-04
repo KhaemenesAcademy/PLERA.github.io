@@ -1,12 +1,13 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "project": "PLERA",
   "phase": "phase-1",
-  "certification_scope": "public repository content only",
-  "certification_status": "CONTENT_READY",
-  "publication_status": "NOT_YET_CERTIFIED",
+  "certification_scope": "public repository content and GitHub Pages deployment artifact",
+  "certification_status": "COMMISSIONED",
+  "publication_status": "DEPLOYMENT_VERIFIED",
   "authority": "non-authoritative-public-edge",
   "branch": "main",
+  "public_url": "https://khaemenesacademy.github.io/PLERA.github.io/",
   "inventory": [
     {
       "path": ".nojekyll",
@@ -16,7 +17,7 @@
     {
       "path": "index.html",
       "role": "public doorway",
-      "git_blob_id": "9b051de533d999ad61a9f49b047f351d60734f6a"
+      "git_blob_id": "e4d287f9c6d730608209de99b453caebce4bf227"
     },
     {
       "path": "continuity.html",
@@ -31,12 +32,12 @@
     {
       "path": "status.json",
       "role": "sanitized commissioning metadata",
-      "git_blob_id": "a944b76ba7dc4bed495fff10c3c4f4eb3e735346"
+      "git_blob_id": "a659274df1b118473dccb5957ce4664867be1a1b"
     },
     {
       "path": "README.md",
       "role": "repository role and constraints",
-      "git_blob_id": "3389f165980e2bb2ef4f560feaf11e2549f30c68"
+      "git_blob_id": "59f6121c19a8b0b7c053d3cbd2ad855a1d43cecc"
     },
     {
       "path": "PUBLIC_BOUNDARY.md",
@@ -44,6 +45,27 @@
       "git_blob_id": "2bca89390cbf124329c52d7b79ac146abf5b8050"
     }
   ],
+  "deployment_evidence": {
+    "provider": "GitHub Pages",
+    "workflow": "pages build and deployment",
+    "workflow_run_number": 16,
+    "workflow_run_id": 33918259364,
+    "verified_head_sha": "4aa23c162d52717ca7781b0924d9a916ad0eff20",
+    "workflow_status": "completed",
+    "workflow_conclusion": "success",
+    "environment_url": "https://khaemenesacademy.github.io/PLERA.github.io/",
+    "artifact_id": 9953981514,
+    "artifact_digest": "sha256:e35586e01bd6adad08ff195f7147241385650cb34b23018f5b28ef243fa391bc",
+    "artifact_inspection": "PASS"
+  },
+  "artifact_checks": {
+    "expected_public_file_set_present": true,
+    "commissioned_index_markers_present": true,
+    "commissioned_status_metadata_present": true,
+    "commissioned_readme_markers_present": true,
+    "sensitive_pattern_scan_matches": 0,
+    "private_loopback_or_control_endpoint_matches": 0
+  },
   "boundary_checks": {
     "secret_values_intentionally_present": false,
     "admin_passcode_values_present": false,
@@ -56,5 +78,5 @@
     "live_internal_health_feed_present": false,
     "private_runtime_fallback_present": false
   },
-  "certification_note": "Phase 1 repository content is ready for publication testing. This certification does not assert that GitHub Pages is enabled, deployed, reachable, or correctly routed. Publication must be verified separately before PLERA Phase 1 is declared commissioned."
+  "certification_note": "PLERA Phase 1 is commissioned as a static public edge. GitHub Pages reported a successful deployment to the public environment URL, and the deployed Pages artifact was inspected for inventory and public-boundary integrity. Operational STOS authority remains sovereign and private."
 }
